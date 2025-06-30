@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
     println!("🚀 Starting Solana Balance Server...");
 
     let port = env::var("PORT").unwrap_or_else(|_| "8000".to_string());
-    let bind_address = format!("127.0.0.1:{}", port);
+    let bind_address = format!("0.0.0.0:{}", port);
     println!("Listening on http://{}", bind_address);
 
     HttpServer::new(

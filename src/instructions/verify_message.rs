@@ -1,4 +1,5 @@
 use actix_web::{HttpResponse, Responder, post, web};
+use serde_json::json;
 use solana_sdk::{bs58, pubkey::Pubkey};
 use crate::types::*;
 use solana_sdk::signature::Signature;
@@ -62,7 +63,8 @@ pub async fn verify_message(
         message: req.message.clone(),
         pubkey: req.pubkey.clone(),
     };
-    HttpResponse::Ok().json(serde_json::json!({
+    println!("Brut");
+    HttpResponse::Ok().json(json!({
         "success": true,
         "data": data
     }))
